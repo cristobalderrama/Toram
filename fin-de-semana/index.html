@@ -287,6 +287,69 @@
       }
       @media (min-width: 760px) { .versus { display: none; } }
 
+      /* ---------- Countdown: apertura TORAM ---------- */
+      .countdown-band {
+        background: var(--blue-ink);
+        color: #fff;
+        padding: 36px 0 40px;
+        border-top: 4px solid var(--orange);
+      }
+      .countdown-band .kicker-tor {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--orange); color: #fff;
+        font-weight: 800; font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+        padding: 6px 12px; border-radius: 999px;
+      }
+      .countdown-band h2 {
+        font-size: clamp(28px, 6vw, 40px); font-weight: 800; margin-top: 14px; max-width: 720px;
+      }
+      .countdown-band h2 span { color: var(--orange-soft); }
+      .countdown-band .lead {
+        color: rgba(255,255,255,.88); font-size: 16.5px; line-height: 1.6;
+        margin: 12px 0 0; max-width: 720px;
+      }
+      .countdown-band .lead strong { color: #fff; }
+      .cd-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+        margin-top: 24px; max-width: 720px;
+      }
+      @media (min-width: 640px) { .cd-grid { grid-template-columns: repeat(5, 1fr); gap: 12px; } }
+      .cd-tile {
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.22);
+        border-radius: 16px;
+        padding: 16px 8px 13px;
+        text-align: center;
+      }
+      .cd-tile .num {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: clamp(34px, 8vw, 48px); font-weight: 800; line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      .cd-tile .lbl {
+        margin-top: 7px; font-size: 12px; font-weight: 700;
+        letter-spacing: .07em; text-transform: uppercase; color: var(--orange-soft);
+      }
+      .cd-urgency {
+        margin-top: 20px; max-width: 720px;
+        display: flex; gap: 10px; align-items: flex-start;
+        background: rgba(243, 144, 17, .16);
+        border: 1px solid rgba(253, 186, 92, .55);
+        border-radius: 14px; padding: 14px 16px;
+        font-size: 15px; line-height: 1.55; color: rgba(255,255,255,.94);
+      }
+      .cd-urgency svg { flex: none; margin-top: 2px; color: var(--orange-soft); }
+      .cd-urgency strong { color: #fff; }
+      .cd-cta {
+        display: inline-flex; align-items: center; gap: 10px;
+        margin-top: 20px; min-height: 52px;
+        background: #25D366; color: #07331A;
+        font-weight: 800; font-size: 16.5px;
+        padding: 12px 22px; border-radius: 999px; text-decoration: none;
+      }
+      .cd-cta:active { transform: translateY(1px); }
+      .cd-fine { margin-top: 14px; font-size: 12.5px; color: rgba(255,255,255,.65); max-width: 720px; }
+
       /* ---------- Closing ---------- */
       .closing { padding: 40px 0 8px; }
       .closing-card {
@@ -352,12 +415,37 @@
       </div>
     </nav>
 
+    <!-- ============ COUNTDOWN: APERTURA TORAM ============ -->
+    <section class="countdown-band" aria-labelledby="cd-title">
+      <div class="wrap">
+        <span class="kicker-tor">ViveMaz te recomienda · TORAM Parque Temático</span>
+        <h2 id="cd-title">La apertura del parque se acerca: <span>octubre de 2027</span></h2>
+        <p class="lead">Las participaciones se venden en <strong>etapa previa a la apertura</strong>. Cuando el parque abra sus puertas, <strong>esa etapa se cierra y la venta de participaciones termina</strong>: quien quiera entrar, tiene que hacerlo antes.</p>
+        <div class="cd-grid" role="timer" aria-label="Cuenta regresiva a la apertura del parque, octubre de 2027">
+          <div class="cd-tile"><div class="num" id="cd-meses">–</div><div class="lbl">Meses</div></div>
+          <div class="cd-tile"><div class="num" id="cd-dias">–</div><div class="lbl">Días</div></div>
+          <div class="cd-tile"><div class="num" id="cd-horas">–</div><div class="lbl">Horas</div></div>
+          <div class="cd-tile"><div class="num" id="cd-min">–</div><div class="lbl">Min</div></div>
+          <div class="cd-tile"><div class="num" id="cd-seg">–</div><div class="lbl">Seg</div></div>
+        </div>
+        <div class="cd-urgency">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1.5 21h21L12 2Zm0 6.2 5.4 9.8H6.6L12 8.2ZM11 12v4h2v-4h-2Zm0 5v2h2v-2h-2Z"/></svg>
+          <span><strong>Sin aviso previo:</strong> el cierre de la venta no se anuncia con una cuenta regresiva de salida ni con una fecha de última oportunidad. Puede ocurrir en cuanto se complete la etapa previa a la apertura — si te interesa, no lo dejes para el final.</span>
+        </div>
+        <a class="cd-cta" href="https://wa.me/526691393136?text=Hola%20Cristobal%2C%20vi%20la%20cuenta%20regresiva%20a%20la%20apertura%20de%20TORAM%20y%20quiero%20informaci%C3%B3n%20de%20participaciones%20antes%20de%20que%20cierre%20la%20venta." target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.9l.5-.6c.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+          Quiero info de participaciones
+        </a>
+        <p class="cd-fine">Cuenta regresiva automática al mes de apertura: octubre de 2027, según contrato. El día exacto de apertura aún no está confirmado, así que el contador apunta al inicio de ese mes y se actualiza solo, segundo a segundo.</p>
+      </div>
+    </section>
+
     <main class="wrap">
 
       <!-- ============ WEATHER ============ -->
       <section class="weather" aria-labelledby="wx-title">
-        <h2 id="wx-title">El clima del fin de semana</h2>
-        <p class="sub">Sol, calorcito de playa y cero lluvia los tres días.</p>
+        <h2 id="wx-title">Clima, eventos e info de Mazatlán — cada fin de semana</h2>
+        <p class="sub">El clima del fin de semana: sol, calorcito de playa y cero lluvia los tres días. Esta sección se actualiza cada jueves con el pronóstico, los eventos y los planes del siguiente fin de semana.</p>
         <div class="wx-grid">
           <article class="wx">
             <div class="top">
@@ -563,6 +651,7 @@
             <span class="vm">Vive<span>Maz</span> te recomienda</span>
             <h2 id="t-cierre">ViveMaz te recomienda TORAM</h2>
             <p>Si este fin de semana te hace pensar en quedarte — si quieres vivir en Mazatlán — pregúntame. Te oriento sin compromiso sobre opciones para vivir e invertir en el puerto.</p>
+            <p><strong>Y ojo con el reloj:</strong> la venta de participaciones es previa a la apertura de octubre de 2027 y se cierra cuando el parque abra, sin aviso previo. Revisa la <a href="#cd-title" style="color:#FDBA5C;font-weight:700">cuenta regresiva al inicio de esta guía</a> y, si te interesa, pregúntame hoy.</p>
             <a class="wa-btn" href="https://wa.me/526691393136?text=Hola%20Cristobal%2C%20vi%20la%20gu%C3%ADa%20de%20fin%20de%20semana%20de%20ViveMaz%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.9l.5-.6c.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
               WhatsApp · 669 139 3136
@@ -588,6 +677,58 @@
     </footer>
 
     <script>
+      /* Cuenta regresiva automática a la apertura del parque: octubre de 2027.
+         No hay día exacto confirmado: la meta es el inicio del mes de apertura
+         (1 de octubre de 2027, 00:00 hora de Mazatlán, UTC-7 todo el año).
+         Descompone el tiempo restante en meses completos de calendario, días,
+         horas, minutos y segundos, y se actualiza cada segundo. */
+      (function () {
+        var elM = document.getElementById('cd-meses');
+        if (!elM) return;
+        var elD = document.getElementById('cd-dias');
+        var elH = document.getElementById('cd-horas');
+        var elMin = document.getElementById('cd-min');
+        var elS = document.getElementById('cd-seg');
+        var target = new Date('2027-10-01T00:00:00-07:00').getTime();
+        function addMonthsClamped(date, months) {
+          var d = new Date(date.getTime());
+          var day = d.getDate();
+          d.setDate(1);
+          d.setMonth(d.getMonth() + months);
+          var last = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+          d.setDate(Math.min(day, last));
+          return d;
+        }
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
+        function tick() {
+          var now = new Date();
+          var diff = target - now.getTime();
+          if (diff <= 0) {
+            elM.textContent = '0'; elD.textContent = '0'; elH.textContent = '00';
+            elMin.textContent = '00'; elS.textContent = '00';
+            var t = document.getElementById('cd-title');
+            if (t) t.innerHTML = 'El parque <span>ya abrió</span>';
+            return;
+          }
+          var months = (new Date(target).getFullYear() - now.getFullYear()) * 12
+            + (new Date(target).getMonth() - now.getMonth());
+          var anchor = addMonthsClamped(now, months);
+          while (anchor.getTime() > target) { months--; anchor = addMonthsClamped(now, months); }
+          var rem = target - anchor.getTime();
+          var days = Math.floor(rem / 86400000); rem -= days * 86400000;
+          var hours = Math.floor(rem / 3600000); rem -= hours * 3600000;
+          var mins = Math.floor(rem / 60000); rem -= mins * 60000;
+          var secs = Math.floor(rem / 1000);
+          elM.textContent = months;
+          elD.textContent = days;
+          elH.textContent = pad(hours);
+          elMin.textContent = pad(mins);
+          elS.textContent = pad(secs);
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+
       (function () {
         var links = Array.prototype.slice.call(document.querySelectorAll('.daynav a[data-nav]'));
         var sections = links.map(function (a) { return document.getElementById(a.getAttribute('data-nav')); });
